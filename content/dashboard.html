@@ -1,83 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../styles/style.css" />
-  <title>SwiftDo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>SwiftDo - Dashboard</title>
 </head>
 <body>
-
-  <header>
-    <div class="logo">
-      <img src="../styles/Logo_SwiftDo.webp" alt="SwiftDo Logo" width="150" height="50">
-    </div>
-
-    <section class="navigator">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="history.html" target="_blank">History</a></li>
-      </ul>
-    </section>
-  </header>
-
-  <main>
-    <h1 class="page-title">Task Optimization Dashboard</h1>
-
-    <section>
-      <div class="card form-card">
-        <h2>Add new tasks</h2>
-
-        <form class="task-form" novalidate>
-          <label for="taskInput">Enter your tasks (one per line)</label>
-          <textarea id="taskInput" name="taskInput" rows="1" placeholder="e.g. Finalize report&#10;Email client"></textarea>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="deadline">Deadline</label>
-              <input type="date" id="deadline" name="deadline">
+    <header>
+        <div class="logo">
+            <img src="../styles/Logo_SwiftDo.webp" alt="SwiftDo Logo" width="150" height="50">
+        </div>
+        <section class="navigator">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active" aria-current="page">Dashboard</a></li>
+                <li><a href="history.html" target="_blank">History</a></li>
+            </ul>
+        </section>
+    </header>
+    <main>
+        <h1 class="page-title">Task Optimization Dashboard</h1>
+        
+        <!-- Twist: Summary Bar for Quick Stats -->
+        <section class="summary-bar">
+            <div class="stat-card">
+                <span class="stat-icon">📋</span>
+                <div class="stat-content">
+                    <h3>Total Tasks</h3>
+                    <p>3</p>
+                </div>
             </div>
-
-            <div class="field">
-              <label for="duration">Estimated Duration (hrs)</label>
-              <input type="number" id="duration" name="duration" placeholder="in hours" min="0" step="0.5">
+            <div class="stat-card">
+                <span class="stat-icon">⚡</span>
+                <div class="stat-content">
+                    <h3>Optimized Today</h3>
+                    <p>2</p>
+                </div>
             </div>
-
-            <div class="field range-field">
-              <label for="urgency">Urgency Rate (1-5)</label>
-              <div class="range-wrap">
-                <input type="range" id="urgency" name="urgency" min="1" max="5" value="3">
-                <output id="urgencyVal">3</output>
-              </div>
+            <div class="stat-card">
+                <span class="stat-icon">🎯</span>
+                <div class="stat-content">
+                    <h3>Productivity Score</h3>
+                    <p>85%</p>
+                </div>
             </div>
-          </div>
-
-          <div class="form-actions">
-            <input type="submit" value="Optimize Tasks" class="btn btn-primary">
-            <button type="button" class="btn btn-ghost">Add Task</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <article>
-    <div class="card list-card">
-      <h2>Your Current Tasks</h2>
-      <button type="button" class="btn run-optimizer">Run Optimizer</button>
-
-      <ol class="task-list">
-        <li data-meta="Deadline: 2024-07-10 • 3h • Urg: 5">Complete project report</li>
-        <li data-meta="Deadline: 2024-07-12 • 2h • Urg: 4">Prepare presentation slides</li>
-        <li data-meta="Deadline: 2024-07-11 • 1h • Urg: 3">Team meeting</li>
-      </ol>
-    </div>
-  </article>
-
-  <footer>
-    <p>&copy; 2025 SwiftDo Task Optimizer. All rights reserved.</p>
-  </footer>
-
+        </section>
+        
+        <!-- Form Section with Twist: Visual Urgency Bar -->
+        <section class="dashboard-section">
+            <div class="card form-card">
+                <h2>Add New Tasks</h2>
+                <form class="task-form" novalidate>
+                    <label for="taskInput">Enter your tasks</label>
+                    <textarea id="taskInput" name="taskInput" rows="1" placeholder="e.g. Enter specific task"></textarea>
+                    
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="deadline">Deadline</label>
+                            <input type="date" id="deadline" name="deadline" title="Select a deadline date">
+                        </div>
+                        <div class="field">
+                            <label for="duration">Estimated Duration (hrs)</label>
+                            <input type="number" id="duration" name="duration" placeholder="e.g. 2.5" min="0" step="0.5" title="Enter time in hours">
+                        </div>
+                        <div class="field range-field">
+                            <label for="urgency">Urgency Rate (1-5)</label>
+                            <div class="range-wrap">
+                                <input type="range" id="urgency" name="urgency" min="1" max="5" value="3" title="Slide to set urgency">
+                                <output id="urgencyVal">3</output>
+                            </div>
+                            <!-- Twist: Visual Progress Bar for Urgency -->
+                            <div class="urgency-bar">
+                                <div class="urgency-fill" style="width: 60%;"></div> <!-- 3/5 = 60% -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <input type="submit" value="Optimize Tasks" class="btn btn-primary">
+                        <button type="button" class="btn btn-ghost">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Task List Section with Twist: Card-Based Layout and Progress -->
+        <section class="dashboard-section">
+            <div class="card list-card">
+                <h2>Your Current Tasks</h2>
+                <button type="button" class="btn run-optimizer">Run Optimizer</button>
+                
+                <div class="task-grid">
+                    <div class="task-item upcoming">
+                        <div class="task-header">
+                            <span class="task-title">Complete project report</span>
+                            <span class="task-status">Upcoming</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Deadline: 2024-07-10 • 3h</span>
+                            <div class="urgency-bar small">
+                                <div class="urgency-fill" style="width: 100%;"></div> <!-- Urg: 5 -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-item soon">
+                        <div class="task-header">
+                            <span class="task-title">Prepare presentation slides</span>
+                            <span class="task-status">Due Soon</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Deadline: 2024-07-12 • 2h</span>
+                            <div class="urgency-bar small">
+                                <div class="urgency-fill" style="width: 80%;"></div> <!-- Urg: 4 -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-item overdue">
+                        <div class="task-header">
+                            <span class="task-title">Team meeting</span>
+                            <span class="task-status">Overdue</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Deadline: 2024-07-11 • 1h</span>
+                            <div class="urgency-bar small">
+                                <div class="urgency-fill" style="width: 60%;"></div> <!-- Urg: 3 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 SwiftDo Task Optimizer. All rights reserved.</p>
+    </footer>
 </body>
 </html>
