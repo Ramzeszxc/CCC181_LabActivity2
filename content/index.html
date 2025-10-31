@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css"> 
     <title>SwiftDo</title>
 </head>
 <body>
@@ -32,20 +32,49 @@
             <a href="dashboard.html">Start Optimizing Now</a>
         </section>
 
-        <section id="Project_Idea" class="text">
+        <section id="Project_Idea" class="idea-pitch-section">
             <h2>Why SwiftDo?</h2>
-            <p>In today's fast-paced world, managing tasks can be overwhelming. SwiftDo leverages advanced algorithms to prioritize your tasks based on urgency, deadlines, and effort required. This ensures that you focus on what truly matters, enhancing your productivity and reducing stress.</p>
-            <ul class="features">
-                <li><strong>Intelligent Task Prioritization</strong></li>
-                <li><strong>User-Friendly Interface</strong></li>
-                <li><strong>Real-Time Updates</strong></li>
-                <li><strong>Comprehensive Activity History</strong></li>
-            </ul>
+            
+            <div id="pitchContent" class="pitch-content-box" data-state="problem">
+                <h3 class="pitch-title">The Problem: Task Overload</h3>
+                <p>In today's fast-paced world, managing tasks can be overwhelming. Standard To-Do lists often fail because they don't account for <strong>inter-task dependencies</strong> or <strong>human energy levels</strong>. Users feel stressed and unsure what to tackle next.</p>
+            </div>
+            <button id="toggleIdeaBtn" class="btn btn-primary toggle-btn">See Our Solution</button>
+            
+            <hr>
+
+            <h2 class="sub-heading">Core Components</h2>
+            <div class="tabs-container">
+                <div class="tab-controls">
+                    <button class="tab-button active" data-target="tab-prioritization">Prioritization</button>
+                    <button class="tab-button" data-target="tab-interface">User Experience</button>
+                    <button class="tab-button" data-target="tab-history">Activity History</button>
+                </div>
+
+                <div class="tab-content-area">
+                    <div id="tab-prioritization" class="tab-content active">
+                        <h4>Intelligent Optimization</h4>
+                        <p>Our core algorithm uses a unique combination of <strong>Urgency (Time Left)</strong>, <strong>Effort (Time Required)</strong>, and <strong>Impact (User-set Importance)</strong> to calculate a dynamic 'SwiftScore' for every task. This guarantees you are always working on the most valuable task.</p>
+                    </div>
+
+                    <div id="tab-interface" class="tab-content">
+                        <h4>Intuitive Design</h4>
+                        <p>The <strong>Dashboard</strong> is designed for clarity, not clutter. Critical metrics are visualized instantly, allowing users to add, categorize, and start tasks with minimal friction. Less time managing the app, more time doing the work.</p>
+                    </div>
+
+                    <div id="tab-history" class="tab-content">
+                        <h4>Performance Insight</h4>
+                        <p>The comprehensive <strong>History</strong> page logs completed tasks, missed deadlines, and optimization performance over time. This data is used to fine-tune future prioritization, creating a feedback loop for continuous productivity improvement.</p>
+                    </div>
+                </div>
+            </div>
         </section>
-    </main>
+        </main>
 
     <footer>
         <p>&copy; 2025 SwiftDo Task Optimizer. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* --- Global Styles and Typography --- */
 html, body {
     height: 100%;
     scroll-behavior: smooth;
@@ -9,9 +10,35 @@ body {
     min-height: 100vh; 
     margin: 0;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: #1E3A8A;
+    background: #1E3A8A; /* Your main dark blue background */
 }
 
+main {
+    flex: 1 0 auto;
+    padding: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    /* ADDED FIX: Ensure all content inside main on dashboard/history is white text */
+    color: #ffffff; 
+}
+
+/* FIX: Override the white text on specific cards to make them readable */
+.card, .pitch-content-box { 
+    color: #0b1b2b; /* Dark text for elements with a white background */
+}
+
+
+footer {
+    margin-top: 0;
+    padding: 24px 16px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* --- Header & Navigation --- */
 header {
     position: sticky;
     top: 0;
@@ -24,77 +51,6 @@ header {
     background: #ffffff;
     box-shadow: 0 6px 18px rgba(8, 15, 30, 0.06);
     backdrop-filter: blur(6px);
-}
-
-#firstsecond {
-    padding: 5%;
-    font-size: 100px;
-    line-height: 1.05;
-    margin: 0;
-    font-weight: 700;
-    text-align: center;
-}
-
-.first {
-    background: #a1f1ff;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.second {
-    background: #F97316;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.text {
-    color: #ffffff;
-    font-size: 30px;
-    text-align: center;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.Continue {
-    text-align: center;
-    margin-top: 80px;
-    padding: 25px;
-    background: transparent;
-    border: none;
-    border-radius: 12px;
-    display: block;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.Continue a {
-    display: inline-block;
-    padding: 10px 24px;
-    background: #a1f1ff; 
-    color: #475569;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(249,115,22,0.14);
-    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
-}
-
-.Continue a:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 36px rgba(249,115,22,0.20);
-    opacity: 0.97;
-}
-
-ul.features {
-    list-style-type: none; 
-    padding-left: 0; 
-    display: inline-block; 
-    gap: 20px; 
-    flex-wrap: wrap; 
-    justify-content: center; 
 }
 
 .logo img {
@@ -142,18 +98,194 @@ ul.features {
     box-shadow: inset 0 -2px 0 rgba(30,58,138,0.06);
 }
 
-.dashboard {
+/* --- Homepage Hero Section (index.html) --- */
+#firstsecond {
+    padding: 5%;
+    font-size: 100px;
+    line-height: 1.05;
+    margin: 0;
+    font-weight: 700;
     text-align: center;
-    font-size: 25px;
-    color: #F97316;
 }
 
+.first {
+    background: #a1f1ff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.second {
+    background: #F97316;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.text {
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Continue Button */
+.Continue {
+    text-align: center;
+    margin-top: 80px;
+    padding: 25px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    display: block;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Continue a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #a1f1ff; 
+    color: #475569;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(249,115,22,0.14);
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.Continue a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(249,115,22,0.20);
+    opacity: 0.97;
+}
+
+/* Project Idea Section Styling */
+#Project_Idea {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff; /* Ensure surrounding text is white */
+}
+
+#Project_Idea h2 {
+    color: #F97316;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.sub-heading {
+    color: #a1f1ff;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* --- Project Idea Dynamic Elements (JavaScript Requirements) --- */
+
+/* Requirement A: Content Changer Button & Box */
+.pitch-content-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: #ffffff; /* Text color inside the box */
+    text-align: left;
+}
+
+.pitch-title {
+    color: #a1f1ff;
+    font-weight: 700;
+}
+
+.toggle-btn {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: fit-content;
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #F97316, #ff8a00); 
+    color: #0b1b2b;
+    box-shadow: 0 8px 20px rgba(249,115,22,0.2);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 40px 0;
+}
+
+
+/* Requirement B: Tabbed Interface Styling */
+.tabs-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tab-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.tab-button {
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #a1f1ff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 8px 8px 0 0;
+    margin-right: -1px;
+    border-color: rgba(255, 255, 255, 0.15); /* More subtle border on dark bg */
+}
+
+.tab-button:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+    background-color: #fff;
+    color: #1E3A8A; /* Dark text for white background */
+    border: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.tab-content {
+    display: none; 
+    padding: 25px;
+    background: #fff;
+    border-radius: 0 10px 10px 10px;
+    color: #0b1b2b; /* Dark text for white content area */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.tab-content h4 {
+    color: #F97316;
+    margin-top: 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* --- Dashboard Styles (Your Existing Dashboard Styles) --- */
+
+/* Fix for History & Dashboard Headings */
 .page-title {
     margin: 20px 0;
     font-size: 2rem;
     font-weight: 700;
     color: #F97316;
     text-align: left;
+    /* Added to ensure visibility against the dark background */
 }
 
 .card {
@@ -163,6 +295,12 @@ ul.features {
     box-shadow: 0 12px 40px rgba(2,6,23,0.06);
     border: 1px solid rgba(11,20,34,0.04);
 }
+
+/* History Card Fix: Ensure headings are dark */
+.history-card h2 { margin:0 0 8px 0; font-weight:700; color:#08203a; }
+
+
+/* ... [Rest of your existing dashboard and history CSS (form-card, list-card, history-grid, etc.)] ... */
 
 .form-card { max-width: 900px; margin: 0 auto 18px; }
 .form-card h2 { margin: 0 0 12px 0; color: #08203a; font-weight:700; }
@@ -200,19 +338,6 @@ input[type="date"], input[type="number"] { width:50%; padding:10px 12px; border-
     border:none;
     cursor:pointer;
 }
-.task-list { margin-top:52px; display:grid; gap:12px; padding:0; list-style:none; }
-.task-list li {
-    padding:12px 14px;
-    border-radius:10px;
-    background: linear-gradient(180deg,#fbfdff,#ffffff);
-    border:1px solid #eef2f6;
-    color:#0b1b2b;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-weight:600;
-}
-.task-list li::after { content: attr(data-meta); font-weight:600; color:#475569; font-size:0.92rem; }
 
 .history-grid {
     display: grid;
@@ -220,7 +345,7 @@ input[type="date"], input[type="number"] { width:50%; padding:10px 12px; border-
     gap: 16px;
     margin-top: 12px;
 }
-.history-card h2 { margin:0 0 8px 0; font-weight:700; color:#08203a; }
+
 .history-card ol { padding-left: 16px; margin: 8px 0 0 0; }
 .history-card li { margin:8px 0; display:flex; justify-content:space-between; gap:12px; align-items:center; color:#0b1b2b; font-weight:600; }
 .history-card .meta { color:#6b7280; font-weight:500; font-size:0.9rem; }
@@ -436,6 +561,18 @@ input[type="date"], input[type="number"] { width:50%; padding:10px 12px; border-
 
     .summary-bar { flex-direction: column; }
     .task-grid { grid-template-columns: 1fr; }
+
+    /* New Tab Control Responsiveness */
+    .tab-controls {
+        flex-wrap: wrap;
+        margin-bottom: 0;
+    }
+    .tab-button {
+        flex-grow: 1;
+        text-align: center;
+        margin-right: 0; 
+        border-radius: 8px 8px 0 0;
+    }
 }
 
 @media (max-width: 600px) {
@@ -446,20 +583,12 @@ input[type="date"], input[type="number"] { width:50%; padding:10px 12px; border-
     .page-title { text-align: center; font-size: 1.5rem; }
     .summary-bar, .form-row, .history-grid, .task-grid { display: flex; flex-direction: column; }
     input[type="date"], input[type="number"] { width: 100%; }
-}
-
-main {
-    flex: 1 0 auto;
-    padding: 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-footer {
-    margin-top: 0;
-    padding: 24px 16px;
-    text-align: center;
-    color: #ffffff;
-    font-size: 0.9rem;
-    flex-shrink: 0;
+    
+    .form-row {
+        gap: 1.5rem;
+    }
+    .range-field {
+        /* Fixes issue where range field might be too small on mobile */
+        width: 100%;
+    }
 }
